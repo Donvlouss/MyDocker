@@ -1,0 +1,1 @@
+source ./scripts/run_common.sh -n A -f B
