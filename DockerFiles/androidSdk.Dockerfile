@@ -25,5 +25,6 @@ RUN echo $SDKMANGER/sdkmanager
 RUN yes | $SDKMANGER/sdkmanager --licenses && \
     $SDKMANGER/sdkmanager "platform-tools" "platforms;android-31" "ndk;21.3.6528147" "ndk;25.1.8937393" "build-tools;31.0.0" "cmake;3.22.1"
 ENV NDK_HOME $ANDROID_HOME/ndk/21.3.6528147
+ENV ANDROID_NDK ${NDK_HOME}
 ENV PATH $ANDROID_HOME/platform-tools:$PATH
 
