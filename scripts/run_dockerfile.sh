@@ -1,7 +1,7 @@
 name=""
 file="ubuntu2004_zsh:latest"
 
-while getopts ":t:f:h:" opt; do
+while getopts ":t:f:h" opt; do
     case $opt in
         t)
             name="$OPTARG"

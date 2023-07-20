@@ -1,8 +1,9 @@
 name=""
 image="ubuntu2004_zsh:latest"
 port=30022
+shell="zsh"
 
-while getopts ":n:i:hp:" opt; do
+while getopts ":n:i:hp:s:" opt; do
     case $opt in
         n)
             name="$OPTARG"
@@ -13,8 +14,11 @@ while getopts ":n:i:hp:" opt; do
         p)
             port="$OPTARG"
             ;;
+        s)
+            shell="$OPTARG"
+            ;;
         h)
-            echo "Usage: $0 [-n name] [-i image]"
+            echo "Usage: $0 [-n name] [-i image] [-p port] [-s shell]"
             exit 0
             ;;
     esac
@@ -32,4 +36,4 @@ docker run \
     -it \
     --name "$name" \
     "$image" \
-    zsh
+    "$shell"
