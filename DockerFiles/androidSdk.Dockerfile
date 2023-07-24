@@ -6,7 +6,7 @@ ENV TZ=Asia/Taipei
 RUN apt update && \
     apt install -y openjdk-17-jdk unzip
 
-ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 
 ARG SDK_FILE=commandlinetools-linux-9477386_latest.zip
 ARG ANDROID_HOME=/opt/android
