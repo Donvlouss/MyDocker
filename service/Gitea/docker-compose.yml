@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+
+  nginx:
+    # image: nginx:alpine
+    image: ubuntu/nginx:latest
+    container_name: nginx
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      # - ./gitea.conf:/etc/nginx/conf.d/gitea.conf
+      - ${GITEA_DATA_DIR}/gitea/cert/cert.pem:/etc/nginx/gitea.crt
+      - ${GITEA_DATA_DIR}/gitea/cert/key.pem:/etc/nginx/gitea.key
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - gitea
+
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    restart: always
+    env_file: .env
+    environment:
+      - USER_UID
+      - USER_GID
+      - VIRTUAL_PORT=3000
+    volumes:
+      - ${GITEA_DATA_DIR}:/data
+    ports:
+      - 22:22
+      - 3000:3000
+    expose:
+      - 22
+      - 3000
+    networks:
+      - gitea
+    depends_on:
+      - nginx
+
+networks:
+  gitea:
+    external: false

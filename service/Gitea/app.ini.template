@@ -1,0 +1,36 @@
+APP_NAME = Gitea
+RUN_MODE = prod
+RUN_USER = /data/gitea
+
+[repository]
+ROOT = /data/git/repositories
+
+[repository.local]
+LOCAL_COPY_PATH = /data/gitea/tmp/local-repo
+
+[repository.upload]
+TEMP_PATH = /data/gitea/uploads
+
+[server]
+APP_DATA_PATH    = /data/gitea
+DOMAIN           = 0.0.0.0
+SSH_DOMAIN       = 0.0.0.0
+HTTP_PORT        = 3000
+ROOT_URL         = http://0.0.0.0/gitea/
+DISABLE_SSH      = false
+START_SSH_SERVER = true
+SSH_PORT         = 22
+SSH_LISTEN_PORT  = 22
+OFFLINE_MODE     = false
+
+[mailer]
+ENABLED        = true
+FROM           = 
+MAILER_TYPE    = smtp
+HOST           = 
+IS_TLS_ENABLED = true
+USER           = 
+PASSWD         = 
+
+[service]
+ENABLE_NOTIFY_MAIL = true

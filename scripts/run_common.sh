@@ -35,5 +35,6 @@ docker run \
     -e DISPLAY \
     -it \
     --name "$name" \
+    --net "host"\
     "$image" \
     "$shell"

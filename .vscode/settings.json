@@ -137,5 +137,8 @@
                 }
             }
         ]
-    }
+    },
+    "cSpell.words": [
+        "gitea"
+    ]
 }
